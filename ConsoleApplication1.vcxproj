@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boxeur.cpp" />
+    <ClCompile Include="Combat.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
