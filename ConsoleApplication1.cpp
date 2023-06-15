@@ -88,5 +88,6 @@ int main() {
     // Libération de la mémoire du boxeur_2 (car instanciation dynamique)
     delete boxeur_2;
 
+
     return 0;
 }
