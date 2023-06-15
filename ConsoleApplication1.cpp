@@ -8,10 +8,11 @@ private:
 
 public:
     Boxeur(std::string nom, double poids) : nom(nom), poids(poids) {
-        std::cout << "Constructeur de Boxeur : " << nom << std::endl;
+
     }
 
     ~Boxeur() {
+
     }
 
     std::string getNom() const {
@@ -24,6 +25,24 @@ public:
 
     void setPoids(double poids) {
         this->poids = poids;
+    }
+};
+
+class Combat {
+private:
+    std::string niveau;
+
+public:
+    Combat(std::string niveau) : niveau(niveau) {
+
+    }
+
+    ~Combat() {
+
+    }
+
+    std::string getNiveau() const {
+        return niveau;
     }
 };
 
@@ -50,6 +69,13 @@ int main() {
 
     // Libération de la mémoire du boxeur_2 (car instanciation dynamique)
     delete boxeur_2;
+
+    // Instanciation d'un objet Combat
+    Combat combat_1("Comb_1_1/8");
+
+    // Affichage des informations du combat_1
+    std::cout << "Adresse de combat_1 : " << &combat_1 << std::endl;
+    std::cout << "Niveau de combat_1 : " << combat_1.getNiveau() << std::endl;
 
     return 0;
 }
