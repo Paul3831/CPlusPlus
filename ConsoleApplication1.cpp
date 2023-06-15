@@ -33,6 +33,7 @@ private:
     std::string niveau;
     Boxeur* coinBleu;
     Boxeur* coinRouge;
+    Boxeur* vainqueur;
 
 public:
     Combat(std::string niveau) : niveau(niveau), coinBleu(nullptr), coinRouge(nullptr) {
@@ -62,6 +63,20 @@ public:
     Boxeur* getCoinRouge() const {
         return coinRouge;
     }
+
+    Boxeur* designerVainqueur(std::string couleurCoin) {
+        if (couleurCoin == "rouge") {
+            this->vainqueur = coinRouge;
+        }
+        else if (couleurCoin == "bleu") {
+            this->vainqueur = coinBleu;
+        }
+        else {
+            this->vainqueur = nullptr;
+        }
+
+        return this->vainqueur;
+    }
 };
 
 int main() {
@@ -84,6 +99,9 @@ int main() {
     // Vérification des associations
     std::cout << "Boxeur du coin bleu : " << combat_1.getCoinBleu() << std::endl;
     std::cout << "Boxeur du coin rouge : " << combat_1.getCoinRouge() << std::endl;
+
+    Boxeur* Vainqueur = combat_1.designerVainqueur("bleu");
+    std::cout << "Boxeur gagnant :  " << Vainqueur << std::endl;
 
     // Libération de la mémoire du boxeur_2 (car instanciation dynamique)
     delete boxeur_2;
