@@ -1,19 +1,26 @@
+#ifndef BOXEUR_H
 #define BOXEUR_H
 
+#include <iostream>
 #include <string>
 
-class Boxeur {
-private:
-    std::string nom;
-    double poids;
+namespace box {
+    class Boxeur {
+        std::string name;
+        double poids = 0.0;
 
-public:
-    Boxeur(const std::string& nom, double poids);
-    ~Boxeur();
+    public:
+        Boxeur();
+        ~Boxeur();
 
-    std::string GetNom() const;
-    double GetPoids() const;
-    void SetPoids(double poids);
-};
+        Boxeur(std::string name, double poids);
 
+        std::string GetName();
 
+        void SetPoids(double poids);
+
+        double GetPoids();
+    };
+}
+
+#endif
