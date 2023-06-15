@@ -12,7 +12,6 @@ public:
     }
 
     ~Boxeur() {
-        std::cout << "Destructeur de Boxeur : " << nom << std::endl;
     }
 
     std::string getNom() const {
@@ -29,16 +28,28 @@ public:
 };
 
 int main() {
-    // Instanciation d'un objet Boxeur
-    Boxeur boxeur("Box_1", 75.0);
+    // Instanciation automatique d'un objet Boxeur
+    Boxeur boxeur_1("Box_1", 75.0);
 
-    // Affichage du nom et du poids du boxeur
-    std::cout << "Nom du boxeur : " << boxeur.getNom() << std::endl;
-    std::cout << "Poids du boxeur : " << boxeur.getPoids() << " kg" << std::endl;
+    // Affichage des informations du boxeur_1
+    std::cout << "Adresse de boxeur_1 : " << &boxeur_1 << std::endl;
+    std::cout << "Nom de boxeur_1 : " << boxeur_1.getNom() << std::endl;
+    std::cout << "Poids de boxeur_1 : " << boxeur_1.getPoids() << " kg" << std::endl;
 
-    // Modification du poids du boxeur
-    boxeur.setPoids(80.0);
-    std::cout << "Nouveau poids du boxeur : " << boxeur.getPoids() << " kg" << std::endl;
+    // Instanciation dynamique d'un objet Boxeur
+    Boxeur* boxeur_2 = new Boxeur("Box_2", 78.0);
+
+    // Affichage des informations du boxeur_2
+    std::cout << "Adresse de boxeur_2 : " << boxeur_2 << std::endl;
+    std::cout << "Nom de boxeur_2 : " << boxeur_2->getNom() << std::endl;
+    std::cout << "Poids de boxeur_2 : " << boxeur_2->getPoids() << " kg" << std::endl;
+
+    // Modification du poids du boxeur_2
+    boxeur_2->setPoids(80.0);
+    std::cout << "Nouveau poids de boxeur_2 : " << boxeur_2->getPoids() << " kg" << std::endl;
+
+    // Libération de la mémoire du boxeur_2 (car instanciation dynamique)
+    delete boxeur_2;
 
     return 0;
 }
